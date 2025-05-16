@@ -15,35 +15,61 @@ namespace vocabWithDB
     public partial class Question : Form
     {
         string german;
-        string japanese;
+        string foreign;
         Form1 parent;
         int id;
-        public Question(string german, string japanese, Form1 parent, int id)
+        public bool isAbort = false;
+        bool answerQuestion = false;
+
+        public Question(string language, Form1 parent)
         {
             InitializeComponent();
-            this.german = german;
-            this.japanese = japanese;
             this.parent = parent;
-            this.id = id;
-            label1.Text = $"What's {german} in Japanese?";
+        }
+        public void UpdateContent(string german, string foreign, string language)
+        {
+            this.german = german;
+            this.foreign = foreign;
+            label1.Text = $"What's {german} in {language}?";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            answerQuestion = true;
             string answer = textBox1.Text;
-            if (answer == japanese)
+            if (answer == foreign)
             {
                 MessageBox.Show("Correct");
-                string updateQuery = $"UPDATE words SET right = right + 1 WHERE id = {id}";
-                SqliteCommand selectCmd = new SqliteCommand(updateQuery, parent.connection);
-                selectCmd.ExecuteNonQuery();
             }
             else
             {
                 MessageBox.Show("Wrong");
             }
 
-            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        async public void Answered()
+        {
+            while (true)
+            {
+                if (answerQuestion)
+                {
+                    return;
+                }
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            // your code here
+            isAbort = true;
+
+            base.OnFormClosing(e);
         }
     }
 }

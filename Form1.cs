@@ -1,4 +1,5 @@
 using Microsoft.Data.Sqlite;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace vocabWithDB
 {
@@ -6,7 +7,7 @@ namespace vocabWithDB
     {
         public SqliteConnection connection;
 
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -15,22 +16,60 @@ namespace vocabWithDB
             connection.Open();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem != null)
+            {
+                string language = comboBox1.SelectedItem.ToString();
+                string selectQuery = $"SELECT id, German,{language} FROM words";
+                SqliteCommand selectCmd = new SqliteCommand(selectQuery, connection);
+                SqliteDataReader reader = selectCmd.ExecuteReader();
+
+                Question myQuestion = new Question(language, this);
+                myQuestion.ShowDialog();
+
+
+                while (reader.Read())
+                {
+                    string german = reader["German"].ToString();
+                    string foreign = reader[language].ToString();
+                    int id = int.Parse(reader["id"].ToString());
+
+                    if (foreign == null || myQuestion.isAbort)
+                    {
+                        continue;
+                    }
+
+                    myQuestion.UpdateContent(german, foreign, language);
+                    myQuestion.Answered();
+                    
+                }
+            }
+
+        }
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox1.SelectedItem.ToString())
+            {
+                case "Japanese":
+                    Bitmap image = new Bitmap(@"..\..\..\..\vocabWithDB\Assets\csm_japan_ad7c57a369.png");
+                    this.BackgroundImage = image;
+                    break;
+                case "english":
+                    this.BackgroundImage = new Bitmap(@"..\..\..\..\vocabWithDB\Assets\London_1200x600.jpg");
+                    break;
+                case "french":
+                    this.BackgroundImage = new Bitmap(@"..\..\..\..\vocabWithDB\Assets\french.png");
+                    break;
+
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
             
-            string selectQuery = "SELECT * FROM words";
-            SqliteCommand selectCmd = new SqliteCommand(selectQuery, connection);
-            SqliteDataReader reader = selectCmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                string german = reader["German"].ToString();
-                string japanese = reader["Japanese"].ToString();
-                int id = int.Parse(reader["id"].ToString());
-
-                Question myQuestion = new Question(german, japanese, this, id);
-                myQuestion.ShowDialog();
-            }
         }
     }
 }

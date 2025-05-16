@@ -35,18 +35,24 @@
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(388, 96);
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Times New Roman", 16F);
+            label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(59, 25);
+            label1.Size = new Size(960, 540);
             label1.TabIndex = 0;
             label1.Text = "label1";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(396, 181);
+            button1.Font = new Font("Times New Roman", 16F);
+            button1.Location = new Point(397, 394);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(155, 88);
             button1.TabIndex = 1;
             button1.Text = "submit";
             button1.UseVisualStyleBackColor = true;
@@ -54,19 +60,22 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(521, 118);
+            textBox1.Font = new Font("Times New Roman", 12F);
+            textBox1.Location = new Point(346, 328);
+            textBox1.Margin = new Padding(4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
+            textBox1.Size = new Size(267, 40);
             textBox1.TabIndex = 2;
             // 
             // Question
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(960, 540);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(label1);
+            Margin = new Padding(4);
             Name = "Question";
             Text = "Question";
             ResumeLayout(false);
