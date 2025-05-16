@@ -8,10 +8,16 @@ Da ich recht viel Verpasst habe werde ich anhand der Vorlage das gegebene Projek
 
 ## 16.05: Projekt Anfang
 
-- [ ] In code einarbeiten
-- [ ] Repository Erstellen / Verbinden
-- [ ] Änderungen planen
-- [ ] Sprachenselektor einführen
+- [X] In code einarbeiten
+- [X] Repository Erstellen / Verbinden
+- [X] Änderungen planen
+- [X] Sprachenselektor einführen
 
+Ich konnte mich heute in die gegebene Software einarbeiten und meine ersten eigenen Features implementieren. Leider habe ich dabei einen kleinen Bug hergestellt der das anzeigen der individuellen Karteien erschwert.
+
+## 23.05: Projekt Beenden
+- [ ] Reihenfolge bug reparieren
+- [ ] Design verbessern
+- [ ] Code bereinigen
 
 
