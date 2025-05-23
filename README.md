@@ -22,6 +22,12 @@ Ich konnte mich heute in die Software einarbeiten und meine ersten eigenen Funkt
 
 Ich konnte den Bug finden: Es stellte sich heraus, dass die Funktion ShowDialog() für die gesamte Ausführung des Fensters aktiv bleibt und den Prozess blockiert. Das Problem konnte ich lösen, indem ich die Funktion im Loop ausführe und nicht davor. Zudem konnte ich das Design noch ein wenig überarbeiten, indem ich einen Fortschrittsbalken eingefügt habe. Zum Schluss habe ich den Code nochmals aufgeräumt und Kommentare hinzugefügt. Zudem ließ ich ChatGPT noch einige weitere Wörter in die Datenbank einfügen.
 
+## Abschluss
+![Screenshot 2025-05-23 085049](https://github.com/user-attachments/assets/902079c6-3957-410b-8df4-d99a8b4e2517)
+*Sprachauswahlbildschirm*
 
+![Screenshot 2025-05-23 085137](https://github.com/user-attachments/assets/828837bb-3101-4632-95ec-56e58c61b1bc)
+![Screenshot 2025-05-23 085214](https://github.com/user-attachments/assets/c10dfdd4-74ec-4a2e-abe1-e6a6ca1db1ff)
+*wörter üben*
 
 
