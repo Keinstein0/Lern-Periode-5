@@ -4,7 +4,7 @@
 
 ## Grob-Planung
 
-Da ich recht viel Verpasst habe werde ich anhand der Vorlage das gegebene Projekt weiterführen.
+Da ich recht viel verpasst habe werde ich anhand der Vorlage das gegebene Projekt weiterführen.
 
 ## 16.05: Projekt Anfang
 
@@ -13,11 +13,15 @@ Da ich recht viel Verpasst habe werde ich anhand der Vorlage das gegebene Projek
 - [X] Änderungen planen
 - [X] Sprachenselektor einführen
 
-Ich konnte mich heute in die gegebene Software einarbeiten und meine ersten eigenen Features implementieren. Ich konnte den Sprachenselektor sowie einen sich ändernden Hintergrund beim sprachenselektor einführen. Zudem habe ich in der abalaufstruktur einiges geändert indem ich verhindere, dass das fenster sich jedes mal wieder öffnet. Leider habe ich dabei einen kleinen Bug hergestellt der das anzeigen der individuellen Karteien erschwert und momentan die Karten nicht korrekt anzeigt (?).
+Ich konnte mich heute in die Software einarbeiten und meine ersten eigenen Funktionen implementieren. So habe ich unter anderem einen Sprachenselektor sowie einen sich ändernden Hintergrund beim Sprachenselektor eingeführt. Zudem habe ich die Ablaufstruktur der AB angepasst, indem ich verhindert habe, dass sich das Fenster jedes Mal wieder öffnet. Leider habe ich dabei einen kleinen Bug verursacht, der das Anzeigen der individuellen Karteien erschwert und die Karten momentan nicht korrekt anzeigt.
 
 ## 23.05: Projekt Beenden
-- [ ] Reihenfolge bug (?) reparieren
-- [ ] Design verbessern -> Karteien übersichtlicher / farbiger machen
-- [ ] Code bereinigen
+- [X] Reihenfolge bug (?) reparieren
+- [X] Design verbessern -> Karteien übersichtlicher / farbiger machen
+- [X] Code bereinigen
+
+Ich konnte den Bug finden: Es stellte sich heraus, dass die Funktion ShowDialog() für die gesamte Ausführung des Fensters aktiv bleibt und den Prozess blockiert. Das Problem konnte ich lösen, indem ich die Funktion im Loop ausführe und nicht davor. Zudem konnte ich das Design noch ein wenig überarbeiten, indem ich einen Fortschrittsbalken eingefügt habe. Zum Schluss habe ich den Code nochmals aufgeräumt und Kommentare hinzugefügt. Zudem ließ ich ChatGPT noch einige weitere Wörter in die Datenbank einfügen.
+
+
 
 
