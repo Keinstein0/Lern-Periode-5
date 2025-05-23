@@ -15,21 +15,29 @@ namespace vocabWithDB
 {
     public partial class Question : Form
     {
+        // Defining word + translation
         string german;
         string foreign;
+
+        // Utility info
         Form1 parent;
         int id;
+
+        // Defining exit type
         public bool isAbort = false;
         public bool isControlledExit = false;
 
-        bool answerQuestion = false;
+        // Defining current iteration (for progress bar)
         int length;
         int counter;
 
         public Question(string language,int length, Form1 parent)
         {
             InitializeComponent();
+
             this.parent = parent;
+
+            // Progress bar info
             this.length = length;
 
             progressBar1.Minimum = 0;
@@ -41,39 +49,43 @@ namespace vocabWithDB
         }
         public async void UpdateContent(string german, string foreign, string language)
         {
+            // Set variables
             this.german = german;
             this.foreign = foreign;
-            label1.Text = $"What's {german} in {language}?";
 
+            // Set components
+            label1.Text = $"What's {german} in {language}?";
             progressBar1.Value = counter;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             counter++;
-            answerQuestion = true;
+
+            // Get answer
             string answer = textBox1.Text;
+
             if (answer == foreign)
             {
-                MessageBox.Show("Correct");
+                MessageBox.Show($"Correct, it was {foreign}");
             }
             else
             {
-                MessageBox.Show("Wrong");
+                MessageBox.Show($"Wrong, right answer: {foreign}");
             }
+
+            // Close window in controlled way
             isControlledExit = true;
             Close();
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private void label1_Click(object sender, EventArgs e) { }
 
-        }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            // your code here
+            // If form preemptively closed abort all windows after and return to main menu
             if (!isControlledExit)
             {
                 isAbort = true;
@@ -83,9 +95,6 @@ namespace vocabWithDB
             base.OnFormClosing(e);
         }
 
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void progressBar1_Click(object sender, EventArgs e) { }
     }
 }
