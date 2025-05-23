@@ -27,7 +27,9 @@ Ich konnte den Bug finden: Es stellte sich heraus, dass die Funktion ShowDialog(
 *Sprachauswahlbildschirm*
 
 ![Screenshot 2025-05-23 085137](https://github.com/user-attachments/assets/828837bb-3101-4632-95ec-56e58c61b1bc)
-![Screenshot 2025-05-23 085214](https://github.com/user-attachments/assets/c10dfdd4-74ec-4a2e-abe1-e6a6ca1db1ff)
+![Screenshot 2025-05-23 085214](https://github.com/user-attachments/assets/c10dfdd4-74ec-4a2e-abe1-e6a6ca1db1ff)    
 *wörter üben*
 
+Obwohl ich bei diesem Projekt die Hälfte der Zeit abwesend war, konnte ich am Ende trotzdem noch etwas Vernünftiges herausbringen. Ich habe dabei einiges über die Arbeit mit SQLite gelernt. Zudem lernte ich, wie man besser mit Winforms umgeht.
 
+Außerdem versuchte ich, meine Zusammenfassungen und Planungen besser und ausführlicher zu formulieren. Alles in allem hat mir dieses Projekt sehr geholfen – nicht nur beim Programmieren, sondern auch beim Planen. Dieses Mal konnte ich alle meine Arbeitspakete in der geplanten Zeit erledigen und musste keine Pakete überziehen.
