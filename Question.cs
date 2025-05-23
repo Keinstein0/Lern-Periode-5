@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
@@ -19,22 +20,37 @@ namespace vocabWithDB
         Form1 parent;
         int id;
         public bool isAbort = false;
-        bool answerQuestion = false;
+        public bool isControlledExit = false;
 
-        public Question(string language, Form1 parent)
+        bool answerQuestion = false;
+        int length;
+        int counter;
+
+        public Question(string language,int length, Form1 parent)
         {
             InitializeComponent();
             this.parent = parent;
+            this.length = length;
+
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = length;
+            progressBar1.Value = 0;
+
+
+
         }
-        public void UpdateContent(string german, string foreign, string language)
+        public async void UpdateContent(string german, string foreign, string language)
         {
             this.german = german;
             this.foreign = foreign;
             label1.Text = $"What's {german} in {language}?";
+
+            progressBar1.Value = counter;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            counter++;
             answerQuestion = true;
             string answer = textBox1.Text;
             if (answer == foreign)
@@ -45,6 +61,8 @@ namespace vocabWithDB
             {
                 MessageBox.Show("Wrong");
             }
+            isControlledExit = true;
+            Close();
 
         }
 
@@ -53,23 +71,21 @@ namespace vocabWithDB
 
         }
 
-        async public void Answered()
-        {
-            while (true)
-            {
-                if (answerQuestion)
-                {
-                    return;
-                }
-            }
-        }
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             // your code here
-            isAbort = true;
+            if (!isControlledExit)
+            {
+                isAbort = true;
+            }
+            isControlledExit = false;
 
             base.OnFormClosing(e);
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

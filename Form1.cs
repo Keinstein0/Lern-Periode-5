@@ -7,26 +7,43 @@ namespace vocabWithDB
     {
         public SqliteConnection connection;
 
-
         public Form1()
         {
             InitializeComponent();
             string connectionString = "Data Source=..\\..\\..\\words.db";
             connection = new SqliteConnection(connectionString);
             connection.Open();
+
+
+
+
+
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
             if (comboBox1.SelectedItem != null)
             {
+
                 string language = comboBox1.SelectedItem.ToString();
                 string selectQuery = $"SELECT id, German,{language} FROM words";
                 SqliteCommand selectCmd = new SqliteCommand(selectQuery, connection);
                 SqliteDataReader reader = selectCmd.ExecuteReader();
 
-                Question myQuestion = new Question(language, this);
-                myQuestion.ShowDialog();
+
+                string countQuery = "SELECT COUNT(*) FROM words";
+                SqliteCommand command = new SqliteCommand(countQuery, connection);
+                SqliteDataReader lengthReader = command.ExecuteReader();
+
+                int wordListLength = 0;
+                if (lengthReader.Read())
+                {
+                    wordListLength = lengthReader.GetInt32(0);
+                }
+                lengthReader.Close();
+
+
+                Question myQuestion = new Question(language, wordListLength, this);
 
 
                 while (reader.Read())
@@ -41,9 +58,11 @@ namespace vocabWithDB
                     }
 
                     myQuestion.UpdateContent(german, foreign, language);
-                    myQuestion.Answered();
+                    myQuestion.ShowDialog();
                     
                 }
+
+                reader.Close();
             }
 
         }

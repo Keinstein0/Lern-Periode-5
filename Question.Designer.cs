@@ -31,10 +31,12 @@
             label1 = new Label();
             button1 = new Button();
             textBox1 = new TextBox();
+            progressBar1 = new ProgressBar();
             SuspendLayout();
             // 
             // label1
             // 
+            label1.BackColor = Color.AntiqueWhite;
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Times New Roman", 16F);
             label1.Location = new Point(0, 0);
@@ -67,11 +69,20 @@
             textBox1.Size = new Size(267, 40);
             textBox1.TabIndex = 2;
             // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(33, 30);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(886, 40);
+            progressBar1.TabIndex = 3;
+            progressBar1.Click += progressBar1_Click;
+            // 
             // Question
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(960, 540);
+            Controls.Add(progressBar1);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -87,5 +98,6 @@
         private Label label1;
         private Button button1;
         private TextBox textBox1;
+        private ProgressBar progressBar1;
     }
 }
